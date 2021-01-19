@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+
+        <import type="java.util.Locale" />
+
+        <variable
+            name="viewModel"
+            type="com.batdemir.stackexchange.ui.main.detail.DetailViewModel" />
+
+        <variable
+            name="model"
+            type="com.batdemir.stackexchange.data.entities.db.UserModel" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/root_fragment_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/root_padding"
+        tools:context="com.batdemir.nasa.mars.example.ui.rover.RoverFragment">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linear_layout_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    style="?android:progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"
+                    android:visibility="gone" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/image_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="240sp"
+                    android:layout_gravity="center"
+                    android:visibility="@{model.profileImage == null ? View.GONE:View.VISIBLE}"
+                    app:setImage="@{model.profileImage}"
+                    tools:src="@mipmap/ic_launcher" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_view_edit_user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.format(Locale.ROOT,@string/display_name,model.displayName)}"
+                    android:visibility="@{model.displayName == null ? View.GONE:View.VISIBLE}"
+                    app:fontFamily="@font/roboto_black"
+                    tools:text="Batdemir" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_view_edit_point"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.format(Locale.ROOT,@string/point,model.reputation)}"
+                    tools:text="111111" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_view_edit_bronze"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/circle_bronze"
+                    android:drawablePadding="@dimen/padding_small"
+                    android:text="@{String.format(Locale.ROOT,@string/bronze,model.badgeCount.bronze)}"
+                    tools:text="Bronze: 123" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_view_edit_silver"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/circle_silver"
+                    android:drawablePadding="@dimen/padding_small"
+                    android:text="@{String.format(Locale.ROOT,@string/silver,model.badgeCount.silver)}"
+                    tools:text="Silver: 123" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_view_edit_gold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/circle_gold"
+                    android:drawablePadding="@dimen/padding_small"
+                    android:text="@{String.format(Locale.ROOT,@string/gold,model.badgeCount.gold)}"
+                    tools:text="Gold: 123" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_view_edit_creation_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.format(Locale.ROOT,@string/creation_date,model.creationDate)}"
+                    tools:text="11.11.1111" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_view_edit_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.format(Locale.ROOT,@string/location,model.location)}"
+                    android:visibility="@{model.location == null ? View.GONE:View.VISIBLE}"
+                    tools:text="İzmir" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_go_web_site"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/go_web_site"
+                    android:visibility="@{TextUtils.isEmpty(model.websiteUrl) ? View.GONE:View.VISIBLE}" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.batdemir.stackexchange.ui.components.ZoomClass
+            android:id="@+id/popup_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+    </FrameLayout>
+</layout>

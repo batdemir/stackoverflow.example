@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">SOF</string>
+
+    <string name="title_main">Main</string>
+    <string name="title_detail">Detail</string>
+
+    <string name="dynamic_float" translatable="false">%.2f</string>
+    <string name="dynamic_int" translatable="false">%d</string>
+    <string name="dynamic_string" translatable="false">%s</string>
+
+    <!--MAIN FRAGMENT-->
+    <string name="search">Search</string>
+    <string name="no_item_to_list_found">No item to list found</string>
+    <!--DETAIL FRAGMENT-->
+    <string name="display_name">Name: %s</string>
+    <string name="point">Point: %d</string>
+    <string name="bronze">Bronze: %d</string>
+    <string name="silver">Silver: %d</string>
+    <string name="creation_date">Creation Date: %s</string>
+    <string name="location">Location: %s</string>
+    <string name="gold">Gold: %d</string>
+    <string name="go_web_site">Go Web Site</string>
+</resources>
