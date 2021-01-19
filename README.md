@@ -15,14 +15,12 @@ A Stackoverflow simple app that loads information from StackExchange APIs to sho
  <div>
    <img src="/screens/light_1.jpg" width="20%"/>
    <img src="/screens/light_2.jpg" width="20%"/>
-   <img src="/screens/light_3.jpg" width="20%"/>
  </div>
 
  ## Screens (Dark Mode)
   <div>
     <img src="/screens/dark_1.jpg" width="20%"/>
     <img src="/screens/dark_2.jpg" width="20%"/>
-    <img src="/screens/dark_3.jpg" width="20%"/>
   </div>
 
 ## App Architecture
